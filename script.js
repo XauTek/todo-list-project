@@ -2,6 +2,7 @@
 const taskForm = document.querySelector('#add-task-form');
 const taskInput = document.querySelector('#task-input');
 const taskList = document.querySelector('#task-list');
+const clearAllBtn = document.querySelector('#clear-all-btn');
 
 // --- Обработчик для добавления новой задачи ---
 taskForm.addEventListener('submit', function(event) {
@@ -38,6 +39,12 @@ taskForm.addEventListener('submit', function(event) {
     taskInput.value = '';
     // Возвращаем фокус на поле ввода
     taskInput.focus();
+});
+
+clearAllBtn.addEventListener('click', function() {
+    if (confirm('Вы уверены, что хотите удалить все задачи?')) {
+        taskList.innerHTML = ''; // Самый простой способ удалить все <li> из <ul>
+    }
 });
 
 
